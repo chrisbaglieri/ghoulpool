@@ -1,0 +1,2 @@
+task :cron do
+end
