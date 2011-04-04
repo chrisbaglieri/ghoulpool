@@ -1,16 +1,16 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
-gem 'pg', '0.10.0'
-gem 'hassle', :git => 'git://github.com/koppen/hassle.git'
-gem 'simple_form'
+gem 'devise'
 gem 'haml'
-gem 'authlogic'
+gem 'hassle', :git => 'git://github.com/koppen/hassle.git'
+gem 'pg', '0.10.0'
+gem 'simple_form'
 
 group :development, :test do
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'haml-rails'
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'factory_girl'
-  gem 'factory_girl_rails'
 end
