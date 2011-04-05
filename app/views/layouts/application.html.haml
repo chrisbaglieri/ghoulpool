@@ -1,7 +1,8 @@
 !!!
 %html
   %head
-    %title Ghoulpool
+    %title 
+      = yield(:title) || "Ghoulpool"
     = stylesheet_link_tag :all
     = javascript_include_tag :defaults
     = csrf_meta_tag
