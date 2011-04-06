@@ -36,6 +36,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    addressable (2.2.4)
     arel (2.0.9)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
@@ -45,12 +46,9 @@ GEM
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
     diff-lcs (1.1.2)
-    erb2haml (0.1.2)
-      haml
-      hpricot
-      ruby_parser
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    extlib (0.9.15)
     factory_girl (1.3.3)
     factory_girl_rails (1.0.1)
       factory_girl (~> 1.3)
@@ -68,8 +66,12 @@ GEM
     heroku_backup_task (0.0.4)
       heroku (>= 1.13.7, < 2.0)
       rake
-    hpricot (0.8.4)
     i18n (0.5.0)
+    json (1.5.1)
+    ken (0.2.0)
+      addressable
+      extlib
+      json
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
@@ -116,9 +118,6 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.5.0)
-    ruby_parser (2.0.6)
-      sexp_processor (~> 3.0)
-    sexp_processor (3.0.5)
     simple_form (1.3.1)
     thor (0.14.6)
     treetop (1.4.9)
@@ -126,23 +125,21 @@ GEM
     tzinfo (0.3.26)
     warden (1.0.3)
       rack (>= 1.0.0)
-    wikipedia-client (1.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   devise
-  erb2haml
   factory_girl
   factory_girl_rails
   haml
   haml-rails
   hassle!
   heroku_backup_task
+  ken
   pg
   rails (= 3.0.3)
   rspec
   rspec-rails
   simple_form
-  wikipedia-client

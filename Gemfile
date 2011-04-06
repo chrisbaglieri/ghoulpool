@@ -5,9 +5,9 @@ gem 'devise'
 gem 'haml'
 gem 'hassle', :git => 'git://github.com/koppen/hassle.git'
 gem 'heroku_backup_task'
+gem 'ken'
 gem 'pg'
 gem 'simple_form'
-gem 'wikipedia-client'
 
 group :development, :test do
   gem 'factory_girl'
