@@ -10,7 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110404045415) do
+ActiveRecord::Schema.define(:version => 20110406042543) do
+
+  create_table "ghouls", :force => true do |t|
+    t.string   "name",        :null => false
+    t.date     "born_on",     :null => false
+    t.date     "died_on"
+    t.string   "freebase_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ghouls", ["freebase_id"], :name => "index_ghouls_on_freebase_id", :unique => true
+  add_index "ghouls", ["name"], :name => "index_ghouls_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
