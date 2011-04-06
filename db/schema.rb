@@ -10,19 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406042543) do
-
-  create_table "picks", :force => true do |t|
-    t.string   "name",        :null => false
-    t.date     "born_on"
-    t.date     "died_on"
-    t.string   "freebase_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "picks", ["freebase_id"], :name => "index_picks_on_freebase_id", :unique => true
-  add_index "picks", ["name"], :name => "index_picks_on_name", :unique => true
+ActiveRecord::Schema.define(:version => 20110404045415) do
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

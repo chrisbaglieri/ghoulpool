@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Pick do
+describe Ghoul do
   pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -1,0 +1,2 @@
+class GhoulsController < ApplicationController
+end
