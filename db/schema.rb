@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406042543) do
+ActiveRecord::Schema.define(:version => 20110407035455) do
+
+  create_table "entries", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "ghoul_id"
+    t.integer  "pool_id"
+    t.integer  "points",     :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entries", ["ghoul_id"], :name => "index_entries_on_ghoul_id"
+  add_index "entries", ["pool_id"], :name => "index_entries_on_pool_id"
+  add_index "entries", ["user_id"], :name => "index_entries_on_user_id"
 
   create_table "ghouls", :force => true do |t|
     t.string   "name",        :null => false
@@ -23,6 +36,25 @@ ActiveRecord::Schema.define(:version => 20110406042543) do
 
   add_index "ghouls", ["freebase_id"], :name => "index_ghouls_on_freebase_id", :unique => true
   add_index "ghouls", ["name"], :name => "index_ghouls_on_name", :unique => true
+
+  create_table "pools", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "pools", ["user_id"], :name => "index_pools_on_user_id"
+
+  create_table "rules", :force => true do |t|
+    t.integer  "pool_id"
+    t.string   "function"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rules", ["pool_id"], :name => "index_rules_on_pool_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
