@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Pool do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  [:name].each do |field|
+    it 'should require #{field} on create' do
+      Factory.build(:pool, field => nil).save.should be_false
+    end
+  end
+  
 end

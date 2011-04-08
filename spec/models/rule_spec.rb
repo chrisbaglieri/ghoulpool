@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Rule do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  [:function].each do |field|
+    it 'should require #{field} on create' do
+      Factory.build(:rule, field => nil).save.should be_false
+    end
+  end
+  
 end
