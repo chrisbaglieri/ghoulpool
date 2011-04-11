@@ -7,6 +7,7 @@ gem 'hassle', :git => 'git://github.com/koppen/hassle.git'
 gem 'heroku_backup_task'
 gem 'ken'
 gem 'pg'
+gem 'responders'
 gem 'simple_form'
 
 group :development, :test do
