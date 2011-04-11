@@ -1,11 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  
-  [:email].each do |field|
-    it 'should require #{field} on create' do
-      Factory.build(:user, field => nil).save.should be_false
-    end
-  end
-  
+  it { should validate_presence_of(:email) }
+  it { should have_many(:entries) }
+  it { should have_and_belong_to_many(:pools) }
 end

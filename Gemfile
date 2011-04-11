@@ -15,4 +15,5 @@ group :development, :test do
   gem 'haml-rails'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'shoulda'
 end

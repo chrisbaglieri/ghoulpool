@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Entry do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:user) }
+  it { should belong_to(:ghoul) }
+  it { should belong_to(:pool) }
 end
