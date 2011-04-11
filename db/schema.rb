@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110407035455) do
+ActiveRecord::Schema.define(:version => 20110411035354) do
 
   create_table "entries", :force => true do |t|
     t.integer  "user_id"
@@ -43,9 +43,18 @@ ActiveRecord::Schema.define(:version => 20110407035455) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "picks"
   end
 
   add_index "pools", ["user_id"], :name => "index_pools_on_user_id"
+
+  create_table "pools_users", :id => false, :force => true do |t|
+    t.integer "pool_id"
+    t.integer "user_id"
+  end
+
+  add_index "pools_users", ["pool_id"], :name => "pools_users_pool_id"
+  add_index "pools_users", ["user_id"], :name => "pools_users_user_id"
 
   create_table "rules", :force => true do |t|
     t.integer  "pool_id"
