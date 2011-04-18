@@ -10,12 +10,6 @@ describe User do
       @owner = Factory(:user)
     end
 
-    it "should find the pools they own" do
-      Factory(:pool, :owner => @owner)
-      pools = Pool.owned_by @owner
-      pools.count.should == 1
-    end
-
     it "should automatically be added to the pools they own" do
       Factory(:pool, :owner => @owner)
       pools = @owner.pools

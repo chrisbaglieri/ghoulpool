@@ -6,7 +6,9 @@ class Pool < ActiveRecord::Base
   belongs_to :owner, :class_name => "User", :foreign_key => :user_id
   has_and_belongs_to_many :users
   
-  scope :owned_by, lambda { |owner| where(:user_id => owner) }
+  def owned_by? owner
+    self.user_id == owner.id
+  end
   
   def before_create
     users << owner

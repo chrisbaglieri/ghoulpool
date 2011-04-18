@@ -8,4 +8,16 @@ describe Pool do
   it { should have_many(:entries) }
   it { should belong_to(:owner) }
   it { should have_and_belong_to_many(:users) }
+  
+  describe "owners" do
+    before do
+      @owner = Factory(:user)
+    end
+    
+    it "should find the pools they own" do
+      pool = Factory(:pool, :owner => @owner)
+      pool.owned_by?(@owner).should == true
+    end
+  end
+  
 end
