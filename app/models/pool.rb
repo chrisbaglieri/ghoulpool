@@ -7,4 +7,8 @@ class Pool < ActiveRecord::Base
   has_and_belongs_to_many :users
   
   scope :owned_by, lambda { |owner| where(:user_id => owner) }
+  
+  def before_create
+    users << owner
+  end
 end
