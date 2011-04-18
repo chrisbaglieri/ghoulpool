@@ -14,7 +14,7 @@ describe Pool do
       @owner = Factory(:user)
     end
     
-    it "should find the pools they own" do
+    it "should be able to check if they own a pool" do
       pool = Factory(:pool, :owner => @owner)
       pool.owned_by?(@owner).should == true
     end
