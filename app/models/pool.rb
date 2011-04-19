@@ -5,12 +5,13 @@ class Pool < ActiveRecord::Base
   has_one :rule
   belongs_to :owner, :class_name => "User", :foreign_key => :user_id
   has_and_belongs_to_many :users
+  before_create :add_owner_as_member
   
   def owned_by? owner
     self.user_id == owner.id
   end
   
-  def before_create
+  def add_owner_as_member
     users << owner
   end
 end
