@@ -9,10 +9,20 @@ class Ghoul < ActiveRecord::Base
     return @alive if defined?(@alive)
     @alive = true
     if self.died_on.blank?
-      query = { "type" => "/people/deceased_person", "id" => "#{self.freebase_id}", "date_of_death" => [] }
+      query = { "type" => "/people/deceased_person", "id" => "#{self.freebase_id}" }
       matches = Ken.session.mqlread([query])
       @alive = matches.blank?
     end
     @alive
+  end
+  
+  def self.search(name)
+    query = { "type" => "/people/person", "id" => nil, "/common/topic/alias" => "#{name}" }
+    matches = Ken.session.mqlread([query])
+    freebase_ids = []
+    matches.each do |match|
+      freebase_ids << match["id"]
+    end
+    freebase_ids
   end
 end
