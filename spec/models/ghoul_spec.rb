@@ -26,4 +26,9 @@ describe Ghoul do
     ghouls = Ghoul.search("Charlie Sheen")
     ghouls[0].should == "/en/charlie_sheen"
   end
+  
+  it 'should sync from freebase' do
+    ghoul = Factory(:ghoul, :freebase_id => '/en/elizabeth_taylor')
+    ghoul.sync.should == true
+  end
 end
