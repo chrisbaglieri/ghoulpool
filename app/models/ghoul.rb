@@ -9,10 +9,7 @@ class Ghoul < ActiveRecord::Base
     return @alive if defined?(@alive)
     @alive = true
     if self.died_on.blank?
-      args = { 
-        "type" => "/people/deceased_person", 
-        "id" => "#{self.freebase_id}" 
-      }
+      args = { "type" => "/people/deceased_person", "id" => "#{self.freebase_id}" }
       matches = Ghoul.query_freebase(args)
       @alive = matches.blank?
     end
@@ -40,16 +37,10 @@ class Ghoul < ActiveRecord::Base
   end
   
   def self.search(name)
-    args = { 
-      "type" => "/people/person", 
-      "/common/topic/alias" => "#{name}", 
-      "id" => nil 
-    }
+    args = { "type" => "/people/person", "/common/topic/alias" => "#{name}", "id" => nil }
     matches = Ghoul.query_freebase(args)
     freebase_ids = []
-    matches.each do |match|
-      freebase_ids << match["id"]
-    end
+    matches.each { |match| freebase_ids << match["id"] }
     freebase_ids
   end
   
