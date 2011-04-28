@@ -1,8 +1,7 @@
 class Ghoul < ActiveRecord::Base
-  attr_accessible :name, :born_on
-  validates_presence_of :name, :born_on
-  validates_uniqueness_of :name
-  validates_uniqueness_of :freebase_id
+  attr_accessible :freebase_id
+  validates_presence_of :freebase_id, :name, :born_on
+  validates_uniqueness_of :freebase_id, :name
   has_many :entries
   
   def alive?
@@ -19,7 +18,7 @@ class Ghoul < ActiveRecord::Base
   def sync
     args = { 
       "type" => "/people/person", 
-      "id" => "#{self.freebase_id}",
+      "id" => self.freebase_id,
       "date_of_birth" => nil, 
       "name" => nil,
       "/people/deceased_person/date_of_death" => nil 

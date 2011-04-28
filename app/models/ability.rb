@@ -3,8 +3,9 @@ class Ability
 
   def initialize(user)
     if user
-      can :read, Pool
-      can :manage, Pool, :user_id => user.id
+      can :manage, Ghoul
+      can [:read, :create], Pool
+      can [:update, :destroy], Pool, :user_id => user.id
     end
   end
 end

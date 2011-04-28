@@ -12,6 +12,7 @@ class PoolsController < ApplicationController
   end
   
   def create
+    @pool.owner = current_user
     if @pool.save
       redirect_to @pool
     else
