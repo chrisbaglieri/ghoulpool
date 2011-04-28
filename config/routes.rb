@@ -10,9 +10,10 @@ Ghoulpool::Application.routes.draw do
   
   match "dashboard" => 'dashboard#index', :via => :get
   
-  resources :entries
-  resources :ghouls, :only => [:show, :new, :create]
-  resources :pools
-  resources :rules
+  resources :ghouls, :only => [:show]
+  resources :pools do
+    resources :entries, :only => [:new, :create, :destroy]
+    resources :rules
+  end
   
 end
