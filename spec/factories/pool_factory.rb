@@ -3,4 +3,5 @@ Factory.define :pool do |pool|
   pool.description  'Bar'
   pool.picks  10
   pool.association :owner, :factory => :user
+  pool.association :rule
 end

@@ -1,4 +1,3 @@
 Factory.define :rule do |rule|
-  rule.function 'died_on - born_on'
-  rule.association :pool
+  rule.function ":days_alive * 100"
 end
