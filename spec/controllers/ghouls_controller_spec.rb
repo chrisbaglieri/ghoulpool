@@ -4,7 +4,7 @@ describe GhoulsController do
   before do
     @user = Factory(:user)
     sign_in @user
-    @liz = Factory.build(:ghoul, :freebase_id => '/en/elizabeth_taylor')
+    @liz = Factory.build(:dead_ghoul)
     @liz.sync
     @liz.save
   end

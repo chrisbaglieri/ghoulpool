@@ -1,5 +1,25 @@
 require 'spec_helper'
 
 describe EntriesController do
+  before do
+    @user = Factory(:user)
+    sign_in @user
+    @pool = Factory(:pool, :owner => @user)
+  end
+  
+  describe "GET 'new'" do
+    it "should be successful" do
+      get 'new', :pool_id => @pool.id
+      response.should render_template("entries/new")
+    end
+  end
+  
+  describe "POST 'create'" do
+    it "should create a new entry for a ghoul that's alive" do
+      post 'create', :pool_id => @pool.id, :freebase_id => "/en/charlie_sheen"
+      response.should render_template(:action => 'pools/show')
+    end
+    
+  end
 
 end

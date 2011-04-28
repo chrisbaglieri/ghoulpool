@@ -6,6 +6,7 @@ class Ability
       can :manage, Ghoul
       can [:read, :create], Pool
       can [:update, :destroy], Pool, :user_id => user.id
+      can :manage, Entry, :user_id => user.id
     end
   end
 end
