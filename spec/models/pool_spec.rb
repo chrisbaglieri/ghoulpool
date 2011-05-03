@@ -9,6 +9,13 @@ describe Pool do
   it { should belong_to(:owner) }
   it { should have_and_belong_to_many(:users) }
   
+  it "should be able to calculate its score" do
+    pool = Factory(:pool)
+    ghoul = Factory(:dead_ghoul)
+    entry = pool = Factory(:entry, :pool => pool, :ghoul => ghoul)
+    pool.points.should >= 0
+  end
+  
   describe "owners" do
     before do
       @owner = Factory(:user)
