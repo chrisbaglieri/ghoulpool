@@ -4,6 +4,8 @@
   .pools
     %ul
     - @pools.each do |pool|
-      %li pool.name
+      %li
+        = pool.name
+        = "(#{pool.points(current_user)})"
 .span-8.last
   %h3 Updates
