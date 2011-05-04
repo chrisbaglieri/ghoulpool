@@ -1,6 +1,7 @@
 class Pool < ActiveRecord::Base
   attr_accessible :name, :description, :picks
   validates_presence_of :name, :picks
+  validates_numericality_of :picks, :greater_than => 0
   has_many :entries
   has_one :rule
   belongs_to :owner, :class_name => "User", :foreign_key => :user_id

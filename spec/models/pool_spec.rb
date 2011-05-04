@@ -16,6 +16,12 @@ describe Pool do
     pool.points.should >= 0
   end
   
+  it "should not have picks less than zero" do
+    pool = Factory(:pool)
+    pool.picks = -1
+    pool.should_not be_valid
+  end
+  
   describe "owners" do
     before do
       @owner = Factory(:user)
