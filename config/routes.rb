@@ -13,7 +13,6 @@ Ghoulpool::Application.routes.draw do
   resources :ghouls, :only => [:show]
   resources :pools do
     resources :entries, :only => [:new, :create, :destroy]
-    resource :rule, :except => [:show]
   end
   
 end
