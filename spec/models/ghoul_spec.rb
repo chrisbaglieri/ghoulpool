@@ -5,6 +5,7 @@ describe Ghoul do
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:born_on) }
   it { should have_many(:entries) }
+  it { should allow_mass_assignment_of(:freebase_id) }
   
   [:freebase_id, :name].each do |field|
     it 'should validate uniqueness of #{field} on create' do
