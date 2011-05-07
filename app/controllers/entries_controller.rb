@@ -2,7 +2,7 @@ class EntriesController < ApplicationController
   load_and_authorize_resource :pool
   load_and_authorize_resource :entry, :through => :pool
   
-  def new
+  def index
   end
   
   def create

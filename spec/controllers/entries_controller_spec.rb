@@ -7,10 +7,10 @@ describe EntriesController do
     @pool = Factory(:pool, :owner => @user)
   end
   
-  describe "GET 'new'" do
+  describe "GET 'index'" do
     it "should be successful" do
-      get 'new', :pool_id => @pool.id
-      response.should render_template("entries/new")
+      get 'index', :pool_id => @pool.id
+      response.should render_template("entries/index")
     end
   end
   
