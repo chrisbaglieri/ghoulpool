@@ -22,8 +22,8 @@ describe Pool do
   it "should be able to calculate its score for a given user" do
     pool = Factory(:pool)
     ghoul = Factory(:dead_ghoul)
-    entry = Factory(:entry, :pool => pool, :ghoul => ghoul)
-    pool.points.should >= 0
+    entry = Factory(:entry, :pool => pool, :ghoul => ghoul, :owner => pool.owner, :points => 10)
+    pool.points.should > 0
   end
   
   describe "owners" do
