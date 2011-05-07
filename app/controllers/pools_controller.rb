@@ -9,6 +9,7 @@ class PoolsController < ApplicationController
   end
   
   def new
+    @pool.build_rule
   end
   
   def create

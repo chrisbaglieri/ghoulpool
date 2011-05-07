@@ -30,7 +30,7 @@ describe PoolsController do
   
   describe "POST 'create'" do
     it "should create a new pool" do
-      post 'create', :pool => Factory.attributes_for(:pool)
+      post 'create', :pool => { :name => 'foo', :description => 'bar', :picks => 10, :rule => Factory.attributes_for(:rule) }
       response.should render_template(:action => 'pools/show')
     end
   end

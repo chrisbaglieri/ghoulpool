@@ -2,4 +2,6 @@
   = f.input :name
   = f.input :description
   = f.input :picks
+  = f.simple_fields_for :rule do |p|
+    = p.input :function
   = f.button :submit
