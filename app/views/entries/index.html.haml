@@ -1,0 +1,10 @@
+%h2 Entries
+.span-16
+  %h3 Ghouls
+  .ghouls
+    %ul
+    - @entries.each do |entry|
+      %li
+        = entry.ghoul.name
+.span-8
+  = link_to 'Add', new_pool_entry_path(@pool)

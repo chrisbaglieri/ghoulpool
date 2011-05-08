@@ -3,6 +3,10 @@ class EntriesController < ApplicationController
   load_and_authorize_resource :entry, :through => :pool
   
   def index
+    @entries = @pool.entries
+  end
+  
+  def new
   end
   
   def create
