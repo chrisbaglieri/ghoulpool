@@ -1,10 +1,6 @@
 class PoolsController < ApplicationController
   load_and_authorize_resource
   
-  def index
-    @pools = current_user.pools
-  end
-  
   def show
   end
   

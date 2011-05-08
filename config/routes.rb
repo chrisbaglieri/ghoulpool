@@ -11,7 +11,7 @@ Ghoulpool::Application.routes.draw do
   match "dashboard" => 'dashboard#index', :via => :get
   
   resources :ghouls, :only => [:show]
-  resources :pools do
+  resources :pools, :except => [:index] do
     resources :entries, :except => [:new, :edit, :update]
   end
   

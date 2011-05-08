@@ -7,13 +7,6 @@ describe PoolsController do
     @pool = Factory(:pool, :owner => @user)
   end
   
-  describe "GET 'index'" do
-    it "should be successful" do
-      get 'index'
-      response.should render_template("pools/index")
-    end
-  end
-  
   describe "GET 'show'" do
     it "should be successful" do
       get 'show', { :id => @pool.id }
