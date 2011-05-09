@@ -12,7 +12,9 @@ Ghoulpool::Application.routes.draw do
   
   resources :ghouls, :only => [:show]
   resources :pools, :except => [:index] do
-    resources :entries, :except => [:edit, :update]
+    resources :entries, :except => [:edit, :update] do
+      get :autocomplete_ghoul_name, :on => :collection
+    end
   end
   
 end
