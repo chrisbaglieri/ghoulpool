@@ -16,7 +16,7 @@ describe EntriesController do
   
   describe "GET 'new'" do
     it "should be successful" do
-      get 'new'
+      get 'new', :pool_id => @pool.id
       response.should render_template("entries/new")
     end
   end
