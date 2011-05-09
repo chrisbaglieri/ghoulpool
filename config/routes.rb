@@ -10,11 +10,9 @@ Ghoulpool::Application.routes.draw do
   
   match "dashboard" => 'dashboard#index', :via => :get
   
-  resources :ghouls, :only => [:show]
+  resources :ghouls, :only => [:index, :show]
   resources :pools, :except => [:index] do
-    resources :entries, :except => [:edit, :update] do
-      get :autocomplete_ghoul_name, :on => :collection
-    end
+    resources :entries, :except => [:new, :edit, :update]
   end
   
 end

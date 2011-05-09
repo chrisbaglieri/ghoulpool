@@ -9,6 +9,13 @@ describe GhoulsController do
     @liz.save
   end
   
+  describe "GET 'index'" do
+    it "should be successful" do
+      get 'index'
+      response.should render_template("ghouls/index")
+    end
+  end
+  
   describe "GET 'show'" do
     it "should be successful" do
       get 'show', { :id => @liz.id }
