@@ -6,6 +6,9 @@ class EntriesController < ApplicationController
     @entries = @pool.entries
   end
   
+  def new
+  end
+  
   def create
     @entry.owner = current_user
     @entry.ghoul = Ghoul.new(:freebase_id => params[:freebase_id])

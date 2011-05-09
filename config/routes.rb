@@ -12,7 +12,7 @@ Ghoulpool::Application.routes.draw do
   
   resources :ghouls, :only => [:index, :show]
   resources :pools, :except => [:index] do
-    resources :entries, :except => [:new, :edit, :update]
+    resources :entries, :except => [:edit, :update]
   end
   
 end
