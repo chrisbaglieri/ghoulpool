@@ -26,7 +26,7 @@ describe Ghoul do
   
   it 'should search freebase and find matches' do
     ghouls = Ghoul.search("Charlie Sheen")
-    ghouls[0].should == "/en/charlie_sheen"
+    ghouls[0].freebase_id == "/en/charlie_sheen"
   end
   
   it 'should sync from freebase for a ghoul who has not yet crossed over' do
