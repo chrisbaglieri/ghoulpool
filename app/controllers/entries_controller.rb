@@ -7,6 +7,10 @@ class EntriesController < ApplicationController
   end
   
   def new
+    @ghouls = []
+    unless params[:search].blank?
+      @ghouls = Ghoul.search(params[:search][:name])
+    end
   end
   
   def create
