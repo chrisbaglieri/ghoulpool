@@ -15,7 +15,6 @@ class EntriesController < ApplicationController
   
   def create
     @entry.owner = current_user
-    @entry.ghoul = Ghoul.new(:freebase_id => params[:freebase_id])
     if @entry.ghoul.sync and @entry.save
       redirect_to @pool
     else

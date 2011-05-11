@@ -1,4 +1,7 @@
 .ghoul
   = ghoul.name
   = link_to "View", freebase_url(ghoul.freebase_id), :target => "_blank"
-  = link_to "Add", pool_entries_path(pool), :method => :post
+  = simple_form_for [@pool, @entry] do |f|
+    = f.simple_fields_for :ghoul do |g|
+      = g.hidden_field :freebase_id, :input_html => { :value => "#{ghoul.freebase_id}" }
+    = f.button :submit
