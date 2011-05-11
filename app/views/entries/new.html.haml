@@ -1,4 +1,4 @@
 %h2 Search Ghouls
 = render :partial => "form"
 .ghouls
-  = render :partial => "ghoul", :collection => @ghouls
+  = render :partial => "ghoul", :collection => @ghouls, :locals => { :pool => @pool }

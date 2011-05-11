@@ -1,2 +1,4 @@
 .ghoul
   = ghoul.name
+  = link_to "View", freebase_url(ghoul.freebase_id), :target => "_blank"
+  = link_to "Add", pool_entries_path(pool), :method => :post
