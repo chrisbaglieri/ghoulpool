@@ -5,6 +5,7 @@ describe Entry do
   it { should belong_to(:ghoul) }
   it { should belong_to(:pool) }
   it { should have_one(:rule).through(:pool) }
+  it { should allow_mass_assignment_of(:ghoul_attributes) }
   
   it 'should have a value of zero for a ghoul who is alive' do
     entry = Factory(:entry)

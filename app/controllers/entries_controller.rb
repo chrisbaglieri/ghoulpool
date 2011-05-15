@@ -7,6 +7,7 @@ class EntriesController < ApplicationController
   end
   
   def new
+    @entry.build_ghoul
     @ghouls = []
     unless params[:search].blank?
       @ghouls = Ghoul.search(params[:search][:name])

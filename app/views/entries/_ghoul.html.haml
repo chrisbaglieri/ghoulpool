@@ -3,5 +3,5 @@
   = link_to "View", freebase_url(ghoul.freebase_id), :target => "_blank"
   = simple_form_for [@pool, @entry] do |f|
     = f.simple_fields_for :ghoul do |g|
-      = g.hidden_field :freebase_id, :input_html => { :value => "#{ghoul.freebase_id}" }
+      = g.hidden_field :freebase_id, :value => ghoul.freebase_id
     = f.button :submit

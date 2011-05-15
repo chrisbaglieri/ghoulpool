@@ -1,9 +1,11 @@
 class Entry < ActiveRecord::Base
+  attr_accessible :ghoul_attributes
   validate :ghoul_must_be_living, :on => :create
   belongs_to :owner, :class_name => "User", :foreign_key => :user_id
   belongs_to :ghoul
   belongs_to :pool
   has_one :rule, :through => :pool
+  accepts_nested_attributes_for :ghoul
   
   def value
     return 0 if ghoul.died_on.blank?
