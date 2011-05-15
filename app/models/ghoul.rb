@@ -36,7 +36,7 @@ class Ghoul < ActiveRecord::Base
   end
   
   def self.search(name)
-    args = { "type" => "/people/person", "/common/topic/alias" => "#{name}", "id" => nil, "name" => nil, "date_of_birth" => nil }
+    args = { "type" => "/people/person", "name" => "#{name}", "id" => nil, "date_of_birth" => nil }
     matches = Ghoul.query_freebase(args)
     ghouls = []
     matches.each do |match|
