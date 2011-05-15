@@ -24,12 +24,12 @@ describe EntriesController do
   describe "POST 'create'" do
     it "should create a new entry for a ghoul that's alive" do
       post 'create', :pool_id => @pool.id, :entry => { :ghoul_attributes => Factory.attributes_for(:living_ghoul) }
-      response.should render_template(:action => 'pools/show')
+      response.should render_template(:action => 'entries/index')
     end
     
     it "should not create a new entry for a ghoul that's dead" do
       post 'create', :pool_id => @pool.id, :entry => { :ghoul_attributes => Factory.attributes_for(:dead_ghoul) }
-      response.should render_template(:action => 'pools/new')
+      response.should render_template(:action => 'entries/index')
     end
   end
   

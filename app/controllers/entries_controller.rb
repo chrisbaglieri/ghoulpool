@@ -17,7 +17,7 @@ class EntriesController < ApplicationController
   def create
     @entry.owner = current_user
     if @entry.ghoul.sync and @entry.save
-      redirect_to @pool
+      redirect_to pool_entries_path(@pool)
     else
       render :action => 'new'
     end
