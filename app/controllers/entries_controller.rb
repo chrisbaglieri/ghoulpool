@@ -16,7 +16,13 @@ class EntriesController < ApplicationController
   
   def create
     @entry.owner = current_user
-    if @entry.ghoul.sync and @entry.save
+    existing_ghoul = Ghoul.where(:freebase_id => @entry.ghoul.freebase_id).first
+    if existing_ghoul.blank?
+      @entry.ghoul.sync
+    else
+      @entry.ghoul = existing_ghoul
+    end
+    if @entry.save
       redirect_to pool_entries_path(@pool)
     else
       render :action => 'new'

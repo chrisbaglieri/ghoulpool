@@ -22,14 +22,28 @@ describe EntriesController do
   end
   
   describe "POST 'create'" do
-    it "should create a new entry for a ghoul that's alive" do
+    it "should create a new entry for a new ghoul that's alive" do
       post 'create', :pool_id => @pool.id, :entry => { :ghoul_attributes => Factory.attributes_for(:living_ghoul) }
       response.should render_template(:action => 'entries/index')
     end
     
-    it "should not create a new entry for a ghoul that's dead" do
+    it "should not create a new entry for a new ghoul that's dead" do
       post 'create', :pool_id => @pool.id, :entry => { :ghoul_attributes => Factory.attributes_for(:dead_ghoul) }
       response.should render_template(:action => 'entries/index')
+    end
+    
+    it "should create a new entry for an existing ghoul" do
+      Factory(:living_ghoul)
+      post 'create', :pool_id => @pool.id, :entry => { :ghoul_attributes => Factory.attributes_for(:living_ghoul) }
+      response.should render_template(:action => 'entries/index')
+    end
+    
+    it "should create a new entry for an existing ghoul but not a new ghoul" do
+      ghoul = Factory(:living_ghoul)
+      ghouls_before = Ghoul.where(:freebase_id => ghoul.freebase_id).all
+      post 'create', :pool_id => @pool.id, :entry => { :ghoul_attributes => Factory.attributes_for(:living_ghoul) }
+      ghouls_after = Ghoul.where(:freebase_id => ghoul.freebase_id).all
+      ghouls_before.count.should == ghouls_after.count
     end
   end
   
