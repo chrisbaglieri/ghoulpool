@@ -12,6 +12,7 @@ gem 'responders'
 gem 'simple_form'
 
 group :development, :test do
+  gem 'capybara'
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'guard'
