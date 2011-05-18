@@ -27,6 +27,6 @@ class PoolsController < ApplicationController
   
   def destroy
     @pool.destroy
-    respond_with(@pool)
+    respond_with(@pool, :location => dashboard_path)
   end
 end
