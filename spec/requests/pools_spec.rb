@@ -43,4 +43,13 @@ describe "Pools" do
       page.should have_content("Pool was successfully updated.")
     end
   end
+  
+  describe "DELETE /pool" do
+    it "deletes a pool" do
+      @pool = Factory(:pool, :owner => @user)
+      visit "/dashboard"
+      click_link "Delete"
+      page.should have_content("Pool was successfully deleted.")
+    end
+  end
 end
