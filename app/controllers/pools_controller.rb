@@ -2,34 +2,31 @@ class PoolsController < ApplicationController
   load_and_authorize_resource
   
   def show
+    respond_with(@pool)
   end
   
   def new
     @pool.build_rule
+    respond_with(@pool)
   end
   
   def create
     @pool.owner = current_user
-    if @pool.save
-      redirect_to @pool
-    else
-      render :action => 'new'
-    end
+    @pool.save
+    respond_with(@pool)
   end
   
   def edit
+    respond_with(@pool)
   end
   
   def update
-    if @pool.update_attributes(params[:pool])
-      redirect_to @pool
-    else
-      render :action => 'edit'
-    end
+    @pool.update_attributes(params[:pool])
+    respond_with(@pool)
   end
   
   def destroy
     @pool.destroy
-    redirect_to pools_url
+    respond_with(@pool)
   end
 end

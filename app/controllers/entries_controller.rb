@@ -4,6 +4,7 @@ class EntriesController < ApplicationController
   
   def index
     @entries = @pool.entries
+    respond_with(@entries)
   end
   
   def new
@@ -12,6 +13,7 @@ class EntriesController < ApplicationController
     unless params[:search].blank?
       @ghouls = Ghoul.search(params[:search][:name])
     end
+    respond_with(@entry)
   end
   
   def create
@@ -22,15 +24,12 @@ class EntriesController < ApplicationController
     else
       @entry.ghoul = existing_ghoul
     end
-    if @entry.save
-      redirect_to pool_entries_path(@pool)
-    else
-      render :action => 'new'
-    end
+    @entry.save
+    respond_with(@entry, :location => pool_entries_url(@pool))
   end
   
   def destroy
     @entry.destroy
-    redirect_to @pool
+    respond_with(@entry, :location => @pool)
   end
 end
