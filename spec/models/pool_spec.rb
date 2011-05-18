@@ -25,16 +25,4 @@ describe Pool do
     entry = Factory(:entry, :pool => pool, :ghoul => ghoul, :owner => pool.owner, :points => 10)
     pool.points.should > 0
   end
-  
-  describe "owners" do
-    before do
-      @owner = Factory(:user)
-    end
-    
-    it "should be able to check if they own a pool" do
-      pool = Factory(:pool, :owner => @owner)
-      pool.owned_by?(@owner).should == true
-    end
-  end
-  
 end

@@ -9,10 +9,6 @@ class Pool < ActiveRecord::Base
   accepts_nested_attributes_for :rule, :reject_if => lambda { |rule| rule[:function].blank? }
   before_create :add_owner_as_member
   
-  def owned_by? owner
-    self.user_id == owner.id
-  end
-  
   def points(user=nil)
     user ||= owner
     score = 0
