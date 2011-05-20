@@ -12,9 +12,13 @@ class Pool < ActiveRecord::Base
   def points(user=nil)
     user ||= owner
     score = 0
-    user_entries = Entry.where(:user_id => user).where(:pool_id => self)
+    user_entries = self.user_entries(user)
     user_entries.each { |entry| score += entry.points }
     score
+  end
+  
+  def user_entries(user)
+    Entry.where(:user_id => user).where(:pool_id => self)
   end
   
   def add_owner_as_member
