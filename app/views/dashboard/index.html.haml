@@ -5,11 +5,10 @@
     %ul
     - @pools.each do |pool|
       %li
-        = pool.name
+        = link_to pool.name, pool
         = "(#{pool.points(current_user)})"
-        = link_to 'Details', pool
         = link_to 'Entries', pool_entries_path(pool)
         = link_to 'Update', edit_pool_path(pool) if can? :update, pool
-        = link_to 'Delete', pool_path(pool), :method => :delete if can? :destroy, pool
+        = link_to 'Delete', pool, :method => :delete if can? :destroy, pool
 .span-8.last
   %h3 Updates

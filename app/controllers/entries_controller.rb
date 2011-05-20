@@ -30,6 +30,6 @@ class EntriesController < ApplicationController
   
   def destroy
     @entry.destroy
-    respond_with(@entry, :location => @pool)
+    respond_with(@entry, :location => pool_entries_url(@pool))
   end
 end

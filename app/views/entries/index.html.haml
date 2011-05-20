@@ -6,5 +6,6 @@
     - @entries.each do |entry|
       %li
         = link_to entry.ghoul.name, entry.ghoul
+        = link_to "Delete", pool_entry_path(@pool, entry), :method => :delete if can? :destroy, entry
 .span-8
   = link_to 'Add Ghoul', new_pool_entry_path(@pool)
