@@ -21,7 +21,7 @@ describe Ghoul do
   
   it 'should know someone is dead' do
     ghoul = Factory(:dead_ghoul)
-    ghoul.alive?.should == true
+    ghoul.alive?.should == false
   end
   
   it 'should search freebase and find matches' do

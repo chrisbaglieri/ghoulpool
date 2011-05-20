@@ -6,11 +6,12 @@ class Ghoul < ActiveRecord::Base
   
   def alive?
     return @alive if defined?(@alive)
-    @alive = true
     if self.died_on.blank?
       args = { "type" => "/people/deceased_person", "id" => "#{self.freebase_id}" }
       matches = Ghoul.query_freebase(args)
       @alive = matches.blank?
+    else
+      @alive = false
     end
     @alive
   end
