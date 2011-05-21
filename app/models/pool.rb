@@ -35,6 +35,8 @@ class Pool < ActiveRecord::Base
     Entry.where(:user_id => user).where(:pool_id => self)
   end
   
+  private
+  
   def add_owner_as_member
     users << owner
   end
