@@ -4,6 +4,8 @@ class Ghoul < ActiveRecord::Base
   validates_uniqueness_of :freebase_id, :name
   has_many :entries
   
+  scope :living, where(:died_on => nil)
+  
   def alive?
     return @alive if defined?(@alive)
     if self.died_on.blank?

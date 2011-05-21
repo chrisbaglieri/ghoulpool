@@ -19,6 +19,11 @@ describe Ghoul do
     ghoul.alive?.should == true
   end
   
+  it 'should know bring back all living ghouls' do
+    ghoul = Factory(:living_ghoul)
+    Ghoul.living.count.should == 1
+  end
+  
   it 'should know someone is dead' do
     ghoul = Factory(:dead_ghoul)
     ghoul.alive?.should == false
