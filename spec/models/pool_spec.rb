@@ -35,4 +35,9 @@ describe Pool do
     entry = Factory(:entry, :pool => pool, :ghoul => ghoul, :owner => pool.owner)
     pool.user_entries(pool.owner).count.should == 1
   end
+  
+  it "should be able to determine the place for a given user" do
+    ranking = Factory(:ranking)
+    ranking.pool.place(ranking.user).should == 1
+  end
 end
