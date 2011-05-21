@@ -27,6 +27,26 @@ describe "Entries" do
       click_button "Create Entry"
       page.should have_content("Entry was successfully created.")
     end
+    
+    it "fails to crete an entry for a dead ghoul" do
+      visit new_pool_entry_path(@pool)
+      fill_in "Name", :with => "Elizabeth Taylor"
+      click_button "Search"
+      click_button "Create Entry"
+      page.should have_content("Ghoul must be alive")
+    end
+    
+    it "fails to crete an entry for a dead ghoul" do
+      visit new_pool_entry_path(@pool)
+      fill_in "Name", :with => "Barack Obama"
+      click_button "Search"
+      click_button "Create Entry"
+      visit new_pool_entry_path(@pool)
+      fill_in "Name", :with => "Barack Obama"
+      click_button "Search"
+      click_button "Create Entry"
+      page.should have_content("Ghoul already chosen")
+    end
   end
   
   describe "DELETE /pool/{id}/entry" do
