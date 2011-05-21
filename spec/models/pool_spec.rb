@@ -21,14 +21,16 @@ describe Pool do
   
   it "should be able to calculate its score for a given user" do
     pool = Factory(:pool)
-    ghoul = Factory(:dead_ghoul)
+    ghoul = Factory(:living_ghoul)
     entry = Factory(:entry, :pool => pool, :ghoul => ghoul, :owner => pool.owner, :points => 10)
+    ghoul.died_on = Date.today
+    ghoul.save
     pool.points.should > 0
   end
   
   it "should be able to fetch a user's entries" do
     pool = Factory(:pool)
-    ghoul = Factory(:dead_ghoul)
+    ghoul = Factory(:living_ghoul)
     entry = Factory(:entry, :pool => pool, :ghoul => ghoul, :owner => pool.owner, :points => 10)
     pool.user_entries(pool.owner).count.should == 1
   end

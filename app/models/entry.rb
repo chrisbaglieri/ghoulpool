@@ -1,6 +1,7 @@
 class Entry < ActiveRecord::Base
   attr_accessible :ghoul_attributes
   validate :ghoul_must_be_living, :on => :create
+  validate :ghoul_must_unique_for_owner_and_pool, :on => :create
   belongs_to :owner, :class_name => "User", :foreign_key => :user_id
   belongs_to :ghoul
   belongs_to :pool
@@ -17,5 +18,15 @@ class Entry < ActiveRecord::Base
   
   def ghoul_must_be_living
     errors.add(:ghoul, "must be alive") unless ghoul.alive?
+  end
+  
+  def ghoul_must_unique_for_owner_and_pool
+    return if ghoul.id.blank?
+    pool.user_entries(owner).each do |entry|
+      if entry.ghoul.id == ghoul.id
+        errors.add(:ghoul, "already chosen")
+        break
+      end
+    end
   end
 end

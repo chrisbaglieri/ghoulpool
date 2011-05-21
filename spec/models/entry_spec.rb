@@ -13,8 +13,21 @@ describe Entry do
   end
   
   it 'should have a value greater than zero for a ghoul who is dead' do
-    ghoul = Factory(:dead_ghoul)
-    entry = Factory(:entry, :ghoul => ghoul)
+    entry = Factory(:entry)
+    entry.ghoul.died_on = Date.today
+    entry.ghoul.save
     entry.value.should > 0
+  end
+  
+  it "should not create for a dead ghoul" do
+    ghoul = Factory(:dead_ghoul)
+    entry = Factory.build(:entry, :ghoul => ghoul)
+    entry.should_not be_valid
+  end
+  
+  it "should not create for a ghoul that is not already in a user's pool" do
+    entry1 = Factory(:entry)
+    entry2 = Factory.build(:entry, :owner => entry1.owner, :ghoul => entry1.ghoul, :pool => entry1.pool)
+    entry2.should_not be_valid
   end
 end
