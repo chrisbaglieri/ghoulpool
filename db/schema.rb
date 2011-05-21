@@ -10,13 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110411035354) do
+ActiveRecord::Schema.define(:version => 20110521033736) do
 
   create_table "entries", :force => true do |t|
     t.integer  "user_id"
     t.integer  "ghoul_id"
     t.integer  "pool_id"
-    t.integer  "points",     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

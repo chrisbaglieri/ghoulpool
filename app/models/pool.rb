@@ -13,7 +13,7 @@ class Pool < ActiveRecord::Base
     user ||= owner
     score = 0
     user_entries = self.user_entries(user)
-    user_entries.each { |entry| score += entry.points }
+    user_entries.each { |entry| score += entry.value }
     score
   end
   
