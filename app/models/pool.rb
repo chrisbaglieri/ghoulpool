@@ -3,6 +3,7 @@ class Pool < ActiveRecord::Base
   validates_presence_of :name, :picks
   validates_numericality_of :picks, :greater_than => 0
   has_many :entries, :dependent => :destroy
+  has_many :rankings, :dependent => :destroy
   has_one :rule, :dependent => :destroy
   belongs_to :owner, :class_name => "User", :foreign_key => :user_id
   has_and_belongs_to_many :users
