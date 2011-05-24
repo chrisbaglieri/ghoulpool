@@ -5,6 +5,7 @@ class Ghoul < ActiveRecord::Base
   has_many :entries
   
   scope :living, where(:died_on => nil)
+  scope :recent, lambda { |date| where("died_on > ?", date) }
   
   def alive?
     return @alive if defined?(@alive)
@@ -50,6 +51,16 @@ class Ghoul < ActiveRecord::Base
       ghouls << ghoul
     end
     ghouls
+  end
+  
+  def deliver_change_notifications
+    users = Hash.new
+    self.entries.includes(:owner).each do |entry|
+      users[entry.owner.id] = entry.owner
+    end
+    users.each_value do |user|
+      UserMailer.deliver_ghoul_change_notification(user)
+    end
   end
   
   private
