@@ -6,8 +6,10 @@
     = stylesheet_link_tag "print", :media => "print"
     /[if IE]
       = stylesheet_link_tag "ie", :media => "screen, projection"
-    = javascript_include_tag "jquery.min.js", "rails.js", "application.js"
+    = javascript_include_tag "jquery.min.js", "rails.js", "application.js", "http://use.typekit.com/bvq0qsz.js"
     = csrf_meta_tag
+    :javascript
+      try{Typekit.load();}catch(e){}
   %body
     #header= render :partial => "shared/header"
     #content= render :partial => "shared/content"
