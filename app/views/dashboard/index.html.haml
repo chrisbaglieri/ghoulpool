@@ -6,7 +6,7 @@
     - @pools.each do |pool|
       %li
         = link_to pool.name, pool
-        = "(#{pool.points(current_user)})"
+        = "(Points: #{pool.points(current_user)})"
         = link_to 'Entries', pool_entries_path(pool)
         = link_to 'Update', edit_pool_path(pool) if can? :update, pool
         = link_to 'Delete', pool, :method => :delete if can? :destroy, pool

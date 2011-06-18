@@ -1,6 +1,5 @@
 body { background: #F2F2F2; }
-#header { background: #BF0F0F; padding: 20px 0pt; margin-bottom: 20px; }
-#header h1 { color: #D95959; margin: 0pt; font-family: "orgovan-rounded-web-1","orgovan-rounded-web-2"; }
+#header h1 { overflow: hidden; text-indent: -9999px; background: url("../images/logo.png") center top no-repeat; height: 150px; margin: 30px 0pt; }
 #primary-navigation ul { float: right; margin: 10px 0pt 0pt 0pt; }
 #primary-navigation ul li { display: inline; list-style-type: none; padding: 0pt 5px 0pt 5px; }
 #primary-navigation ul li a { color: #D95959; font-weight: bold; text-decoration: none; }
