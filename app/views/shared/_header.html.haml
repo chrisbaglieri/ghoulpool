@@ -1,2 +1,7 @@
 .container
-  %h1 Ghoul Pool
+  .prepend-2.span-20.append-2
+    %ul#primary-navigation
+      = render 'shared/navigation_items'
+      = render 'shared/registration_items'
+      = render 'shared/login_items'
+    %h1 Ghoul Pool

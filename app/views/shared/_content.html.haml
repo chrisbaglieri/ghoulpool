@@ -1,3 +1,6 @@
 .container
-  = render :partial => "shared/notifications"
-  = yield
+  .prepend-2.span-20.append-2
+    .span-20.inner-container
+      .prepend-1.span-18.append-1
+        = render :partial => "shared/notifications"
+        = yield

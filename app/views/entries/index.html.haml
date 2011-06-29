@@ -1,11 +1,14 @@
-%h2 Entries
-.span-16
-  %h3 Ghouls
-  .ghouls
-    %ul
-    - @entries.each do |entry|
-      %li
-        = link_to entry.ghoul.name, entry.ghoul
-        = link_to "Delete", pool_entry_path(@pool, entry), :method => :delete if can? :destroy, entry
-.span-8
-  = link_to 'Add Ghoul', new_pool_entry_path(@pool)
+.span-18.last
+  %h2= "#{@pool.name} Entries"
+  %hr
+  .span-9
+    %h3= "Ghouls (#{@entries.count} of #{@pool.picks})"
+    .ghouls
+      %ul
+        - @entries.each do |entry|
+          %li
+            = link_to entry.ghoul.name, entry.ghoul
+            = link_to "Delete", pool_entry_path(@pool, entry), :method => :delete if can? :destroy, entry
+  .span9-last
+    - if @entries.count <= @pool.picks
+      = link_to 'Add Ghoul', new_pool_entry_path(@pool)

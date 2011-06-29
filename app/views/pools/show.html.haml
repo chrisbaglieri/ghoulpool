@@ -1,10 +1,15 @@
-%h2= @pool.name
-%p= @pool.description
-%p= @pool.rule.function
-.span-16
-  %h3 Participants
-  %ul
-  - @pool.users.each do |user|
-    %li= user.email
-.span-8.last
-  %h3 Activity
+.span-18.last
+  %h2= @pool.name
+  %hr
+  .span-9
+    %h3 Details
+    %ul
+      %li= "Description: #{@pool.description}"
+      %li= "Scoring Function: #{@pool.rule.function}"
+      %li= "Pick Count: #{@pool.picks}"
+    %h3 Participants
+    %ul
+      - @pool.users.each do |user|
+        %li= user.email
+  .span-9.last
+    %h3 Activity
