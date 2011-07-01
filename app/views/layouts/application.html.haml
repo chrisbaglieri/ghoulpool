@@ -2,8 +2,9 @@
 %html
   %head
     %title= yield(:title) || "Ghoulpool"
-    = stylesheet_link_tag "screen", "base", :media => "screen, projection"
+    = stylesheet_link_tag "screen", "base", "http://fonts.googleapis.com/css?family=Special+Elite:regular&v1", :media => "screen, projection"
     = stylesheet_link_tag "print", :media => "print"
+    = stylesheet_link_tag "screen", "base", :media => "screen, projection"
     /[if IE]
       = stylesheet_link_tag "ie", :media => "screen, projection"
     = javascript_include_tag "jquery.min.js", "rails.js", "application.js", "http://use.typekit.com/bvq0qsz.js"
