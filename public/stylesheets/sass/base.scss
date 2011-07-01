@@ -1,0 +1,37 @@
+@mixin rounded($radius) {
+	-moz-border-radius-bottomleft: $radius; 
+	-moz-border-radius-bottomright: $radius; 
+	-moz-border-radius-topleft: $radius; 
+	-moz-border-radius-topright: $radius; 
+	-webkit-border-bottom-left-radius: $radius; 
+	-webkit-border-bottom-right-radius: $radius; 
+	-webkit-border-top-left-radius: $radius; 
+	-webkit-border-top-right-radius: $radius;
+}
+
+@mixin small_button {
+	@include rounded(5px); 
+	padding: 5px; 
+	margin: 0pt 1px; 
+	text-decoration: none; 
+	background-color: #eaeaea; color: #36393D;
+	&:hover { background-color: #36393D; color: #eaeaea;  }
+}
+
+body { background: #F2F2F2; }
+form label { display: block; font-size: 1.65em; } 
+form input { font-size: 1.5em; width: 300px; padding: 5px; }
+form input[type=submit] { @include rounded(5px); background-color: #dedede; background: -moz-linear-gradient(top, #ffffff, #eaeaea); background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ffffff), color-stop(1.0, #dedede)); border: 1px solid #dedede; color: #484848; font-size: 1.65em; font-weight: bold; padding: 10px 15px; }
+
+#header #primary-navigation { float: right; margin: 10px 0pt 0pt 0pt; }
+#header #primary-navigation li { display: inline; list-style-type: none; padding: 0pt 5px 0pt 5px; }
+#header #primary-navigation li a { text-decoration: none; }
+#header #primary-navigation li a:hover { text-decoration: underline; }
+#header h1 { overflow: hidden; text-indent: -9999px; background: url("../images/logo.png") center top no-repeat; height: 150px; margin: 35px 0pt 30px 0pt; }
+#content .inner-container { padding: 30px 0pt; background: #ffffff; border: 10px #D8D8D8 solid; }
+#content h2 { text-align: center; font-family: 'Special Elite', serif; font-size: 3em; font-weight: 700; line-height: 1; margin-bottom: 0.5em; text-transform: uppercase; }
+#content h3 { font-size: 1.65em; font-weight:bold; }
+#content ul { list-style-type: none; padding-left: 0pt; }
+#content ul li { display: block; list-style-type: none; }
+#content .button { @include small_button; }
+#content .pools ul li { padding-bottom: 5px; }
