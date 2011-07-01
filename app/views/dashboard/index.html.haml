@@ -6,4 +6,9 @@
     .pools
       = render :partial => "pool", :collection => @pools
   .span-9.last
+    Not enough, ahem, activity? Go ahead and    
+    = link_to 'start another pool', new_pool_path, :class => "small-button"
+    %br
+    %br
     %h3 Activity
+    .activities

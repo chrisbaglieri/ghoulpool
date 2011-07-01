@@ -33,5 +33,5 @@ form input[type=submit] { @include rounded(5px); background-color: #dedede; back
 #content h3 { font-size: 1.65em; font-weight:bold; }
 #content ul { list-style-type: none; padding-left: 0pt; }
 #content ul li { display: block; list-style-type: none; }
-#content .button { @include small_button; }
+#content .small-button { @include small_button; }
 #content .pools ul li { padding-bottom: 5px; }

@@ -76,7 +76,7 @@ form input[type=submit] {
   display: block;
   list-style-type: none; }
 
-#content .button {
+#content .small-button {
   -moz-border-radius-bottomleft: 5px;
   -moz-border-radius-bottomright: 5px;
   -moz-border-radius-topleft: 5px;
@@ -90,7 +90,7 @@ form input[type=submit] {
   text-decoration: none;
   background-color: #eaeaea;
   color: #36393D; }
-  #content .button:hover {
+  #content .small-button:hover {
     background-color: #36393D;
     color: #eaeaea; }
 
