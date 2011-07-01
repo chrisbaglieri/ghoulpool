@@ -1,0 +1,12 @@
+%ul.pool
+  %li
+    %strong Name:
+    = link_to pool.name, pool
+  %li
+    %strong Standings:
+    = "#{pool.place} out of #{pool.users.count} players with a score of #{pool.points(current_user)}"
+  %li
+    %strong Actions:
+    = link_to 'View Your Entries', pool_entries_path(pool), :class => "button"
+    = link_to 'Update Pool', edit_pool_path(pool), :class => "button" if can? :update, pool
+    = link_to 'Delete Pool', pool, :method => :delete, :class => "button" if can? :destroy, pool

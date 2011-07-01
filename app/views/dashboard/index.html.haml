@@ -2,15 +2,8 @@
   %h2 Dashboard
   %hr
   .span-9
-    %h3 Pools
+    %h3 Pools 
     .pools
-      %ul
-        - @pools.each do |pool|
-          %li
-            = link_to pool.name, pool
-            = "(Points: #{pool.points(current_user)})"
-            = link_to 'Entries', pool_entries_path(pool)
-            = link_to 'Update', edit_pool_path(pool) if can? :update, pool
-            = link_to 'Delete', pool, :method => :delete if can? :destroy, pool
+      = render :partial => "pool", :collection => @pools
   .span-9.last
     %h3 Activity
