@@ -22,7 +22,6 @@ describe "Pools" do
       @pool = Factory.build(:pool, :owner => @user)
       visit new_pool_path
       fill_in "Name", :with => @pool.name
-      fill_in "Description", :with => @pool.description
       fill_in "Picks", :with => @pool.picks
       fill_in "Function", :with => @pool.rule.function
       click_button "Create Pool"
@@ -35,7 +34,6 @@ describe "Pools" do
       @pool = Factory(:pool, :owner => @user)
       visit edit_pool_path(@pool)
       fill_in "Name", :with => "foo"
-      fill_in "Description", :with => "bar"
       fill_in "Picks", :with => @pool.picks
       fill_in "Name", :with => @pool.name
       fill_in "Function", :with => @pool.rule.function

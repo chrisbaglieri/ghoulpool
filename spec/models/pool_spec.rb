@@ -10,7 +10,6 @@ describe Pool do
   it { should belong_to(:owner) }
   it { should have_and_belong_to_many(:users) }
   it { should allow_mass_assignment_of(:name) }
-  it { should allow_mass_assignment_of(:description) }
   it { should allow_mass_assignment_of(:picks) }
   it { should allow_mass_assignment_of(:rule_attributes) }
   
