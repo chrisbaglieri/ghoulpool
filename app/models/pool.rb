@@ -1,5 +1,5 @@
 class Pool < ActiveRecord::Base
-  attr_accessible :name, :description, :picks, :rule_attributes
+  attr_accessible :name, :picks, :rule_attributes
   validates_presence_of :name, :picks
   validates_numericality_of :picks, :greater_than => 0
   has_many :entries, :dependent => :destroy
