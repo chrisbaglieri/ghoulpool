@@ -1,16 +1,98 @@
-body { background: #F2F2F2; }
-form label { display: block; font-size: 1.65em; } 
-form input { -moz-border-radius-bottomleft: 20px; -moz-border-radius-bottomright: 20px; -moz-border-radius-topleft: 20px; -moz-border-radius-topright: 20px; -webkit-border-bottom-left-radius: 20px; -webkit-border-bottom-right-radius: 20px; -webkit-border-top-left-radius: 20px; -webkit-border-top-right-radius: 20px; background-color: #eaeaea; background: -moz-linear-gradient(top, #ffffff, #eaeaea); background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ffffff), color-stop(1.0, #eaeaea)); border: 1px solid #cacaca; color: #444; font-size: 1.4em; margin: 0.5em 0; padding: 8px 10px; }
-form input[type=submit] { background-color: #dedede; background: -moz-linear-gradient(top, #ffffff, #eaeaea); background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ffffff), color-stop(1.0, #dedede)); border: 1px solid #dedede; color: #484848; font-size: 1.65em; font-weight: bold; padding: 10px 15px; }
+body {
+  background: #F2F2F2; }
 
-#header #primary-navigation { float: right; margin: 10px 0pt 0pt 0pt; }
-#header #primary-navigation li { display: inline; list-style-type: none; padding: 0pt 5px 0pt 5px; }
-#header #primary-navigation li a { text-decoration: none; }
-#header #primary-navigation li a:hover { text-decoration: underline; }
-#header h1 { overflow: hidden; text-indent: -9999px; background: url("../images/logo.png") center top no-repeat; height: 150px; margin: 35px 0pt 30px 0pt; }
-#content .inner-container { padding: 30px 0pt; background: #ffffff; border: 10px #D8D8D8 solid; }
-#content h2 { text-align: center; font-family: 'Special Elite', serif; font-size: 3em; font-weight: 700; line-height: 1; margin-bottom: 0.5em; text-transform: uppercase; }
-#content h3 { font-size: 1.65em; font-weight:bold; }
-#content ul { list-style-type: none; padding-left: 0pt; }
-#content ul li { display: block; list-style-type: none; }
-#content .pools ul li { padding-bottom: 5px; }
+form label {
+  display: block;
+  font-size: 1.65em; }
+
+form input {
+  font-size: 1.5em;
+  width: 300px;
+  padding: 5px; }
+
+form input[type=submit] {
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  background-color: #dedede;
+  background: -moz-linear-gradient(top, white, #eaeaea);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #dedede));
+  border: 1px solid #dedede;
+  color: #484848;
+  font-size: 1.65em;
+  font-weight: bold;
+  padding: 10px 15px; }
+
+#header #primary-navigation {
+  float: right;
+  margin: 10px 0pt 0pt 0pt; }
+
+#header #primary-navigation li {
+  display: inline;
+  list-style-type: none;
+  padding: 0pt 5px 0pt 5px; }
+
+#header #primary-navigation li a {
+  text-decoration: none; }
+
+#header #primary-navigation li a:hover {
+  text-decoration: underline; }
+
+#header h1 {
+  overflow: hidden;
+  text-indent: -9999px;
+  background: url("../images/logo.png") center top no-repeat;
+  height: 150px;
+  margin: 35px 0pt 30px 0pt; }
+
+#content .inner-container {
+  padding: 30px 0pt;
+  background: #ffffff;
+  border: 10px #D8D8D8 solid; }
+
+#content h2 {
+  text-align: center;
+  font-family: 'Special Elite', serif;
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5em;
+  text-transform: uppercase; }
+
+#content h3 {
+  font-size: 1.65em;
+  font-weight: bold; }
+
+#content ul {
+  list-style-type: none;
+  padding-left: 0pt; }
+
+#content ul li {
+  display: block;
+  list-style-type: none; }
+
+#content .button {
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  padding: 5px;
+  margin: 0pt 1px;
+  text-decoration: none;
+  background-color: #eaeaea;
+  color: #36393D; }
+  #content .button:hover {
+    background-color: #36393D;
+    color: #eaeaea; }
+
+#content .pools ul li {
+  padding-bottom: 5px; }
