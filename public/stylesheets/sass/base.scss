@@ -21,7 +21,8 @@
 body { background: #F2F2F2; }
 form label { display: block; font-size: 1.65em; } 
 form input { font-size: 1.5em; width: 300px; padding: 5px; }
-form input[type=submit] { @include rounded(5px); background-color: #dedede; background: -moz-linear-gradient(top, #ffffff, #eaeaea); background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ffffff), color-stop(1.0, #dedede)); border: 1px solid #dedede; color: #484848; font-size: 1.65em; font-weight: bold; padding: 10px 15px; }
+form input[type=submit] { @include rounded(5px); background-color: #dedede; background: -moz-linear-gradient(top, #ffffff, #eaeaea); background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ffffff), color-stop(1.0, #dedede)); border: 1px solid #dedede; color: #484848; font-size: 1.65em; font-weight: bold; padding: 10px 15px; width: 313px; }
+abbr, acronym { border-bottom: none; }
 
 #header #primary-navigation { float: right; margin: 10px 0pt 0pt 0pt; }
 #header #primary-navigation li { display: inline; list-style-type: none; padding: 0pt 5px 0pt 5px; }

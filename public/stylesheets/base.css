@@ -26,7 +26,11 @@ form input[type=submit] {
   color: #484848;
   font-size: 1.65em;
   font-weight: bold;
-  padding: 10px 15px; }
+  padding: 10px 15px;
+  width: 313px; }
+
+abbr, acronym {
+  border-bottom: none; }
 
 #header #primary-navigation {
   float: right;
