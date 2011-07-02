@@ -2,5 +2,5 @@
   = f.input :name
   = f.input :picks
   = f.simple_fields_for :rule do |p|
-    = p.input :function
+    = p.input :function, :placeholder => "for example ':days_alive * 100'"
   = f.button :submit
