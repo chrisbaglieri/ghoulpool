@@ -1,0 +1,9 @@
+%ul
+  %li
+    %strong Name:
+    = link_to entry.ghoul.name, entry.ghoul
+  %li
+    %strong Action(s):
+    = link_to "Details", entry.ghoul, :class => "small-button"
+    = link_to "Freebase Entry", freebase_url(entry.ghoul.freebase_id), :class => "small-button", :target => "_blank"
+    = link_to "Delete", pool_entry_path(@pool, entry), :method => :delete, :class => "small-button" if can? :destroy, entry
