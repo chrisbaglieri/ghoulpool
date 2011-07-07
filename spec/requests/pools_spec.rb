@@ -25,7 +25,7 @@ describe "Pools" do
       fill_in "Picks", :with => @pool.picks
       fill_in "Function", :with => @pool.rule.function
       click_button "Create Pool"
-      page.should have_content("Pool was successfully created.")
+      page.should have_content(@pool.name)
     end
   end
   
@@ -34,11 +34,8 @@ describe "Pools" do
       @pool = Factory(:pool, :owner => @user)
       visit edit_pool_path(@pool)
       fill_in "Name", :with => "foo"
-      fill_in "Picks", :with => @pool.picks
-      fill_in "Name", :with => @pool.name
-      fill_in "Function", :with => @pool.rule.function
       click_button "Update Pool"
-      page.should have_content("Pool was successfully updated.")
+      page.should have_content("foo")
     end
   end
   
@@ -47,7 +44,7 @@ describe "Pools" do
       @pool = Factory(:pool, :owner => @user)
       visit "/dashboard"
       click_link "Delete"
-      page.should have_content("Pool was successfully deleted.")
+      page.should_not have_content(@pool.name)
     end
   end
 end

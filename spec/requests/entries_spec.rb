@@ -25,7 +25,7 @@ describe "Entries" do
       fill_in "Name", :with => "Barack Obama"
       click_button "Search"
       click_button "Create Entry"
-      page.should have_content("Entry was successfully created.")
+      page.should have_content("Obama")
     end
     
     it "fails to crete an entry for a dead ghoul" do
@@ -54,7 +54,7 @@ describe "Entries" do
       @entry = Factory(:entry, :owner => @user, :pool => @pool)
       visit pool_entries_path(@pool)
       click_link "Delete"
-      page.should have_content("Entry was successfully deleted.")
+      page.should_not have_content(@entry.ghoul.name)
     end
   end
 end
