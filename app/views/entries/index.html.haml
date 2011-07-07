@@ -2,9 +2,10 @@
   %h2= "#{@pool.name} Entries"
   %hr
   .span-9
-    %h3= "Ghouls (#{@entries.count} of #{@pool.picks})"
+    %h3 Ghouls
     .entries
       = render :partial => "entry", :collection => @entries
+    = paginate @entries
   .span9-last
     - if @entries.count < @pool.picks
       Hey you have empty slots! Get on that and 
