@@ -6,4 +6,4 @@
     %strong Action(s):
     = link_to "Details", entry.ghoul, :class => "small-button"
     = link_to "Freebase Entry", freebase_url(entry.ghoul.freebase_id), :class => "small-button", :target => "_blank"
-    = link_to "Delete", pool_entry_path(@pool, entry), :method => :delete, :class => "small-button" if can? :destroy, entry
+    = link_to "Delete", pool_entry_path(@pool, entry), :confirm => "Are you sure want to delete this ghoul?", :method => :delete, :class => "small-button" if can? :destroy, entry

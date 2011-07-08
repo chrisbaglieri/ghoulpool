@@ -7,6 +7,9 @@
       = render :partial => "entry", :collection => @entries
     = paginate @entries
   .span9-last
-    - if @entries.count < @pool.picks
-      Hey you have empty slots! Get on that and 
-      = link_to 'add more ghouls', new_pool_entry_path(@pool), :class => "small-button"
+    %h3 Actions
+    %ul
+      %li
+        = link_to "View Pool", @pool, :class => "small-button"
+        - if @entries.count < @pool.picks
+        = link_to 'Add More Ghouls', new_pool_entry_path(@pool), :class => "small-button"
