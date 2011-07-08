@@ -9,4 +9,4 @@
     %strong Actions:
     = link_to 'View Your Entries', pool_entries_path(pool), :class => "small-button"
     = link_to 'Update Pool', edit_pool_path(pool), :class => "small-button" if can? :update, pool
-    = link_to 'Delete Pool', pool, :method => :delete, :class => "small-button" if can? :destroy, pool
+    = link_to 'Delete Pool', pool, :confirm => "Are you sure want to delete this pool?", :method => :delete, :class => "small-button" if can? :destroy, pool
