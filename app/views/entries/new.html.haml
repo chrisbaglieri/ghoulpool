@@ -4,7 +4,7 @@
   .span-9
     = render :partial => "form"
   .span-9.last
-  - unless @ghouls.empty?
-    %p The following matches were found. To confirm the match is correct, please view the "ghoul to be" by clicking on their name before adding them to your pool.
-    .ghouls
-      = render :partial => "ghoul", :collection => @ghouls, :locals => { :pool => @pool }
+    - unless @ghouls.empty?
+      %p The following matches were found. To confirm the match is correct, please view the "ghoul to be" by clicking on their name before adding them to your pool.
+      .ghouls
+        = render :partial => "ghoul", :collection => @ghouls, :locals => { :pool => @pool }
