@@ -19,92 +19,44 @@
 	&:hover { background-color: #36393D; color: #eaeaea;  }
 }
 
+@mixin small_form_button($background, $color) {
+	@include small_button($background, $color);
+	font-size: 100%;
+	width: 50px;
+}
+
 @mixin big_button($background, $color) {
 	@include small_button($background, $color);
 	font-size: 1.65em; 
 	font-weight: bold; 
-	margin: 10px 10px 0pt 0pt;
+	margin: 10px 10px 20px 0pt;
 	padding: 10px 15px; 
 	width: 150px;
 }
 
-body { 
-	background: #F2F2F2; 
-	}
-form label { 
-	display: block; 
-	font-size: 1.65em; 
-	}
-form input { 
-	font-size: 1.5em; 
-	width: 300px; 
-	padding: 5px; 
-	}
-abbr, acronym { 
-	border-bottom: none; 
-	}
+body { background: #F2F2F2; }
+form label { display: block; font-size: 1.65em; }
+form input { font-size: 1.5em; width: 300px; padding: 5px; }
+abbr, acronym { border-bottom: none; }
 	
-.small-button { 
-	@include small_button(#D8D8D8, #36393D); 
-	}
-.big-button { 
-	@include big_button(#D8D8D8, #36393D); 
-	}
+.small-button { @include small_button(#D8D8D8, #36393D); }
+.small-form-button { @include small_form_button(#D8D8D8, #36393D); }
+.big-button { @include big_button(#D8D8D8, #36393D); }
 
-#header { 
-	margin-top: 10px; 
-	}
-#header #primary-navigation { 
-	float: right; 
-	margin: 10px 0pt 0pt 0pt; 
-	}
-#header #primary-navigation li { 
-	display: inline; 
-	list-style-type: none; 
-	padding: 0pt 5px 0pt 5px; 
-	}
-#header #primary-navigation li a { 
-	text-decoration: none; 
-	}
-#header h1 { 
-	overflow: hidden; 
-	text-indent: -9999px; 
-	background: url("../images/logo.png") center top no-repeat; 
-	height: 150px; 
-	margin: 45px 0pt 30px 0pt; 
-	}
-#content .inner-container { 
-	padding: 30px 0pt; 
-	background: #ffffff; 
-	border: 10px #D8D8D8 solid; 
-	}
-#content h2 { 
-	text-align: center; 
-	font-family: 'Special Elite', serif; 
-	font-size: 3em; 
-	font-weight: 700; 
-	line-height: 1; 
-	margin-bottom: 0.5em; 
-	text-transform: uppercase; 
-	}
-#content h3 { 
-	font-size: 1.65em; 
-	font-weight:bold; 
-	}
-#content ul { 
-	list-style-type: none; 
-	padding-left: 0pt; 
-	}
-#content ul li { 
-	display: block; 
-	list-style-type: none; 
-	}
-#content .pools ul li { 
-	padding-bottom: 5px; 
-	}
-#content .entries ul li { 
-	padding-bottom: 5px; 
-	}
-#footer {
-	padding-bottom: 50px;
-	}
+#header { margin-top: 10px; }
+#header #primary-navigation { float: right; margin: 10px 0pt 0pt 0pt; }
+#header #primary-navigation li { display: inline; list-style-type: none; padding: 0pt 5px 0pt 5px; }
+#header #primary-navigation li a { text-decoration: none; }
+#header h1 { overflow: hidden; text-indent: -9999px; background: url("../images/logo.png") center top no-repeat; height: 150px; margin: 45px 0pt 30px 0pt; }
+
+#content .inner-container { padding: 30px 0pt; background: #ffffff; border: 10px #D8D8D8 solid; }
+#content h2 { text-align: center; font-family: 'Special Elite', serif; font-size: 3em; font-weight: 700; line-height: 1; margin-bottom: 0.5em; text-transform: uppercase; }
+#content h3 { font-size: 1.65em; font-weight:bold; }
+#content ul { list-style-type: none; padding-left: 0pt; }
+#content ul li { display: block; list-style-type: none; }
+#content .pools ul li { padding-bottom: 5px; }
+#content .entries ul li { padding-bottom: 5px; }
+#content .ghoul { margin-bottom: 10px; }
+#content .ghoul .name { font-size: 1.2em; margin-left: 10px; }
+
+#footer {padding-bottom: 50px;}
