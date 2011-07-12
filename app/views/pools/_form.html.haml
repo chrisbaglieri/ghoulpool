@@ -3,4 +3,5 @@
   = f.input :picks
   = f.simple_fields_for :rule do |p|
     = p.input :function, :placeholder => "for example ':days_alive * 100'"
-  = f.button :submit
+  = f.button :submit, :class => "big-button"
+  = link_to "Cancel", @pool, :class => "big-button"

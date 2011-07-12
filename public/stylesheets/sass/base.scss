@@ -10,12 +10,22 @@
 }
 
 @mixin small_button($background, $color) {
-	@include rounded(5px); 
+	@include rounded(5px);
+	border: none;
 	padding: 5px; 
 	margin: 0pt 1px; 
 	text-decoration: none; 
 	background-color: $background; color: $color;
 	&:hover { background-color: #36393D; color: #eaeaea;  }
+}
+
+@mixin big_button($background, $color) {
+	@include small_button($background, $color);
+	font-size: 1.65em; 
+	font-weight: bold; 
+	margin: 10px 10px 0pt 0pt;
+	padding: 10px 15px; 
+	width: 150px;
 }
 
 body { 
@@ -30,21 +40,15 @@ form input {
 	width: 300px; 
 	padding: 5px; 
 	}
-form input[type=submit] { 
-	@include rounded(5px); 
-	background-color: #dedede; 
-	background: -moz-linear-gradient(top, #ffffff, #eaeaea);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ffffff), color-stop(1.0, #dedede)); 
-	border: 1px solid #dedede; 
-	color: #484848; 
-	font-size: 1.65em; 
-	font-weight: bold; 
-	margin-top: 10px; 
-	padding: 10px 15px; 
-	width: 313px; 
-	}
 abbr, acronym { 
 	border-bottom: none; 
+	}
+	
+.small-button { 
+	@include small_button(#D8D8D8, #36393D); 
+	}
+.big-button { 
+	@include big_button(#D8D8D8, #36393D); 
 	}
 
 #header { 
@@ -61,9 +65,6 @@ abbr, acronym {
 	}
 #header #primary-navigation li a { 
 	text-decoration: none; 
-	}
-#header .small-button { 
-	@include small_button(#D8D8D8, #36393D); 
 	}
 #header h1 { 
 	overflow: hidden; 
@@ -97,9 +98,6 @@ abbr, acronym {
 #content ul li { 
 	display: block; 
 	list-style-type: none; 
-	}
-#content .small-button { 
-	@include small_button(#eaeaea, #36393D); 
 	}
 #content .pools ul li { 
 	padding-bottom: 5px; 

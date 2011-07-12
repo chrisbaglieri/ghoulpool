@@ -7,5 +7,5 @@
   %p
     = f.label :password_confirmation, "Confirm new password"
     = f.password_field :password_confirmation
-  %p= f.submit "Change my password"
+  %p= f.submit "Change my password", :class => "big-button"
 = render :partial => "devise/shared/links"

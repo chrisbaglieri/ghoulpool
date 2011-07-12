@@ -1,4 +1,4 @@
 = render "shared/error_messages", :target => @entry
 = simple_form_for :search, :url => new_pool_entry_path(@pool), :html => {:method => :get} do |f|
   = f.input :name
-  = f.submit 'Search'
+  = f.submit 'Search', :class => "big-button"

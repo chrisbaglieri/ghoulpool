@@ -3,5 +3,5 @@
   %p
     = f.label :email
     = f.email_field :email
-  %p= f.submit "Resend unlock instructions"
+  %p= f.submit "Resend unlock instructions", :class => "big-button"
 = render :partial => "devise/shared/links"
