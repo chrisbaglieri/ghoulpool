@@ -24,7 +24,9 @@ class EntriesController < ApplicationController
     else
       @entry.ghoul = existing_ghoul
     end
-    @entry.save
+    unless @entry.save
+      @ghouls = []
+    end
     respond_with(@entry, :location => pool_entries_url(@pool))
   end
   
