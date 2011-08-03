@@ -25,7 +25,7 @@ class Ghoul < ActiveRecord::Base
       "id" => self.freebase_id,
       "date_of_birth" => nil, 
       "name" => nil,
-      "/people/deceased_person/date_of_death" => nil 
+      "/people/deceased_person/date_of_death" => nil
     }
     matches = Ghoul.query_freebase(args)
     match_found = false
@@ -40,7 +40,13 @@ class Ghoul < ActiveRecord::Base
   end
   
   def self.search(name)
-    args = { "type" => "/people/person", "name" => "#{name}", "id" => nil, "date_of_birth" => nil }
+    args = { 
+      "type" => "/people/person", 
+      "name" => "#{name}", 
+      "id" => nil, 
+      "date_of_birth" => nil,
+      "/people/deceased_person/date_of_death" => nil 
+    }
     matches = Ghoul.query_freebase(args)
     ghouls = []
     matches.each do |match|
@@ -48,6 +54,7 @@ class Ghoul < ActiveRecord::Base
       ghoul.freebase_id = match["id"]
       ghoul.name = match["name"]
       ghoul.born_on = match["date_of_birth"]
+      ghoul.died_on = match["/people/deceased_person/date_of_death"]
       ghouls << ghoul
     end
     ghouls
