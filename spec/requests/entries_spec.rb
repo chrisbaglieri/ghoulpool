@@ -22,30 +22,10 @@ describe "Entries" do
   describe "POST /pool/{id}/entries" do
     it "creates an entry" do
       visit new_pool_entry_path(@pool)
-      fill_in "Name", :with => "Barack Obama"
-      click_button "Search"
-      click_button "Create Entry"
-      page.should have_content("Obama")
-    end
-    
-    it "fails to crete an entry for a dead ghoul" do
-      visit new_pool_entry_path(@pool)
-      fill_in "Name", :with => "Elizabeth Taylor"
-      click_button "Search"
-      click_button "Create Entry"
-      page.should have_content("Ghoul must be alive")
-    end
-    
-    it "fails to crete an entry for a dead ghoul" do
-      visit new_pool_entry_path(@pool)
-      fill_in "Name", :with => "Barack Obama"
-      click_button "Search"
-      click_button "Create Entry"
-      visit new_pool_entry_path(@pool)
-      fill_in "Name", :with => "Barack Obama"
-      click_button "Search"
-      click_button "Create Entry"
-      page.should have_content("Ghoul already chosen")
+      fill_in "Name", :with => "Charlie Sheen"
+      click_button "Find Ghouls"
+      click_button "Add"
+      page.should have_content("Charlie")
     end
   end
   
