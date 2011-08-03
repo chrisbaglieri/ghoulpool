@@ -9,7 +9,7 @@ gem 'hassle', :git => 'git://github.com/koppen/hassle.git'
 gem 'heroku_backup_task'
 gem 'kaminari'
 gem 'ken'
-gem 'pg'
+gem 'pg', "~> 0.11.0"
 gem 'responders'
 gem 'sass'
 gem 'simple_form'

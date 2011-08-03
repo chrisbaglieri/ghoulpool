@@ -106,7 +106,7 @@ GEM
     mime-types (1.16)
     nokogiri (1.4.4)
     orm_adapter (0.0.4)
-    pg (0.10.0)
+    pg (0.11.0)
     polyglot (0.3.1)
     rack (1.2.2)
     rack-mount (0.6.14)
@@ -179,7 +179,7 @@ DEPENDENCIES
   heroku_backup_task
   kaminari
   ken
-  pg
+  pg (~> 0.11.0)
   rails (= 3.0.3)
   rb-fsevent
   responders
